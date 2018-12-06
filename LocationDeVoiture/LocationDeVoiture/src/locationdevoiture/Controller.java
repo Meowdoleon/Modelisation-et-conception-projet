@@ -5,6 +5,7 @@
  */
 package locationdevoiture;
 
+import javax.swing.JButton;
 import javax.swing.JPanel;
 
 /**
@@ -60,8 +61,25 @@ public class Controller {
         calcul.setVisible(true);
     }
     
+    public static void calculRetour(JPanel calcul)
+    {
+        calcul.setVisible(true);
+    }
+    
     public static void choixVehicule(JPanel vehicule)
     {
         vehicule.setVisible(true);
+    }
+    
+    public static void paiement(JButton confirmation)
+    {
+        confirmation.setVisible(true);
+    }
+    
+    public static void recherche(JPanel client, JPanel vehicule, JPanel paiement)
+    {
+        client.setVisible(true);
+        vehicule.setVisible(true);
+        paiement.setVisible(true);
     }
 }

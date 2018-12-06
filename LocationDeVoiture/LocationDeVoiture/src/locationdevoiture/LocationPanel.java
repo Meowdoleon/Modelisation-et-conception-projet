@@ -5,6 +5,9 @@
  */
 package locationdevoiture;
 
+import java.util.Enumeration;
+import javax.swing.AbstractButton;
+import javax.swing.ButtonGroup;
 import javax.swing.JPanel;
 
 /**
@@ -20,6 +23,19 @@ public class LocationPanel extends javax.swing.JPanel {
         initComponents();
     }
     
+    // Fonction pour vérifier le RadioButton sélectionné
+    public String getSelectedButtonText(ButtonGroup buttonGroup) {
+        for (Enumeration<AbstractButton> buttons = buttonGroup.getElements(); buttons.hasMoreElements();) {
+            AbstractButton button = buttons.nextElement();
+
+            if (button.isSelected()) {
+                return button.getText();
+            }
+        }
+
+        return null;
+    }
+    
     public void setAnnuler(JPanel annuler)
     {
         this.annuler = annuler;
@@ -28,6 +44,12 @@ public class LocationPanel extends javax.swing.JPanel {
     public void setConfirmer(JPanel confirmer)
     {
         this.confirmer = confirmer;
+    }
+    
+    // Fonctions pour le paneau de paiement
+    public String getModePaiement()
+    {
+        return this.modePaiementLocationComboBox.getSelectedItem().toString();
     }
     
     public void setPremierPaiement(String montant)
@@ -40,16 +62,89 @@ public class LocationPanel extends javax.swing.JPanel {
         this.paiementCautionLabel.setText(montant);
     }
     
+    // Fonctions pour le paneau de location
+    public String getDureeLocation()
+    {
+        return this.dureeComboBox.getSelectedItem().toString();
+    }
+    
+    public String getDateDeLocation()
+    {
+        return this.dateFormattedTextField.getText();
+    }
+    
     public String getClasseVehicule()
     {
         return this.classeComboBox.getSelectedItem().toString();
     }
     
+    public String getAssurance()
+    {
+        return getSelectedButtonText(assuranceButtonGroup);
+    }
+    
+    public String getUsure()
+    {
+        return getSelectedButtonText(usureButtonGroup);
+    }
+    
+    // Fonctions pour le paneau de Véhicule
     public void setChoixClasse(String vehicule)
     {
         this.classeChoisieLabel.setText(vehicule);
     }
-            
+    
+    public void setVehicule(String[] vehicule)
+    {
+        this.vehiculeDisponibleComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(vehicule));
+    }
+    
+    public String getVehiculeChoisi()
+    {
+        return this.vehiculeDisponibleComboBox.getSelectedItem().toString();
+    }
+    
+    // Fonctions pour les informations clients
+    public String getNumeroPermis()
+    {
+        return this.numeroPermisTextField.getText();
+    }
+    
+    public String getPrenom()
+    {
+        return this.prenomTextField.getText();
+    }
+    
+    public String getNom()
+    {
+        return this.nomTextField.getText();
+    }
+    
+    public String getCourriel()
+    {
+        return this.courrielTextField.getText();
+    }
+    
+    public String getTelephone()
+    {
+        return this.telephoneTextField.getText();
+    }
+    
+    public String getDateNaissance()
+    {
+        return this.dateNaissanceTextField.getText();
+    }
+    
+    public String getDateExpiration()
+    {
+        return this.dateExpirationPermisTextField.getText();
+    }
+    
+    public String getClasse()
+    {
+        return getSelectedButtonText(classePermisButtonGroup);
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -61,10 +156,9 @@ public class LocationPanel extends javax.swing.JPanel {
 
         assuranceButtonGroup = new javax.swing.ButtonGroup();
         usureButtonGroup = new javax.swing.ButtonGroup();
+        classePermisButtonGroup = new javax.swing.ButtonGroup();
         informationLocationPanel = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        numLocationLabel = new javax.swing.JLabel();
         dateFormattedTextField = new javax.swing.JFormattedTextField();
         jLabel6 = new javax.swing.JLabel();
         dureeComboBox = new javax.swing.JComboBox<>();
@@ -91,12 +185,11 @@ public class LocationPanel extends javax.swing.JPanel {
         telephoneTextField = new javax.swing.JFormattedTextField();
         dateNaissanceTextField = new javax.swing.JFormattedTextField();
         dateExpirationPermisTextField = new javax.swing.JFormattedTextField();
-        classe1CheckBox = new javax.swing.JCheckBox();
-        classe3CheckBox = new javax.swing.JCheckBox();
-        classe5CheckBox = new javax.swing.JCheckBox();
-        classe6ABCCheckBox = new javax.swing.JCheckBox();
-        classe6DCheckBox = new javax.swing.JCheckBox();
-        classe6ECheckBox = new javax.swing.JCheckBox();
+        jLabel1 = new javax.swing.JLabel();
+        numeroPermisTextField = new javax.swing.JTextField();
+        classe123RadioButton = new javax.swing.JRadioButton();
+        classe45RadioButton = new javax.swing.JRadioButton();
+        classeAutreRadioButton = new javax.swing.JRadioButton();
         vehiculeLocationPanel = new javax.swing.JPanel();
         vehiculeClasseLabel = new javax.swing.JLabel();
         classeChoisieLabel = new javax.swing.JLabel();
@@ -119,10 +212,6 @@ public class LocationPanel extends javax.swing.JPanel {
 
         jLabel5.setText("Date de location :");
 
-        jLabel10.setText("Numéro de location :");
-
-        numLocationLabel.setText("jLabel11");
-
         dateFormattedTextField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("dd/MM/YYYY"))));
 
         jLabel6.setText("Durée :");
@@ -139,15 +228,15 @@ public class LocationPanel extends javax.swing.JPanel {
         personnelleButton.setText("Personnelle");
 
         assuranceButtonGroup.add(supplementPoliceButton);
-        supplementPoliceButton.setText("Supplément");
+        supplementPoliceButton.setText("Supplementaire");
 
-        usureLabel.setText("Frais d'usure :");
+        usureLabel.setText("Frais d'usure (km) :");
 
         usureButtonGroup.add(km500Button);
-        km500Button.setText("500 km gratuit");
+        km500Button.setText("500");
 
         usureButtonGroup.add(kmIllimiteButton);
-        kmIllimiteButton.setText("km illimité");
+        kmIllimiteButton.setText("illimité");
 
         choixVehiculeButton.setText("Choix du Vehicule");
         choixVehiculeButton.addActionListener(new java.awt.event.ActionListener() {
@@ -164,10 +253,6 @@ public class LocationPanel extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(informationLocationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(informationLocationPanelLayout.createSequentialGroup()
-                        .addComponent(jLabel10)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(numLocationLabel))
-                    .addGroup(informationLocationPanelLayout.createSequentialGroup()
                         .addGroup(informationLocationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel5)
                             .addComponent(jLabel6)
@@ -176,13 +261,12 @@ public class LocationPanel extends javax.swing.JPanel {
                         .addGroup(informationLocationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(informationLocationPanelLayout.createSequentialGroup()
                                 .addComponent(classeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
+                                .addGap(95, 95, 95))
                             .addGroup(informationLocationPanelLayout.createSequentialGroup()
                                 .addGroup(informationLocationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(dureeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(dateFormattedTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(choixVehiculeButton))))
+                                .addGap(77, 77, 77))))
                     .addGroup(informationLocationPanelLayout.createSequentialGroup()
                         .addComponent(assuranceLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -195,42 +279,39 @@ public class LocationPanel extends javax.swing.JPanel {
                         .addComponent(km500Button)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(kmIllimiteButton)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(choixVehiculeButton)
                 .addContainerGap())
         );
         informationLocationPanelLayout.setVerticalGroup(
             informationLocationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(informationLocationPanelLayout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(informationLocationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(informationLocationPanelLayout.createSequentialGroup()
-                        .addGroup(informationLocationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel10)
-                            .addComponent(numLocationLabel))
-                        .addGap(14, 14, 14)
                         .addGroup(informationLocationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel5)
                             .addComponent(dateFormattedTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(informationLocationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel6)
-                            .addComponent(dureeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(informationLocationPanelLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(choixVehiculeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(informationLocationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(classeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(informationLocationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(assuranceLabel)
-                    .addComponent(personnelleButton)
-                    .addComponent(supplementPoliceButton))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(informationLocationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(usureLabel)
-                    .addComponent(km500Button)
-                    .addComponent(kmIllimiteButton))
-                .addContainerGap(11, Short.MAX_VALUE))
+                            .addComponent(dureeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(informationLocationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel7)
+                            .addComponent(classeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(informationLocationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(assuranceLabel)
+                            .addComponent(personnelleButton)
+                            .addComponent(supplementPoliceButton))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(informationLocationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(usureLabel)
+                            .addComponent(km500Button)
+                            .addComponent(kmIllimiteButton)))
+                    .addComponent(choixVehiculeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         informationClientLocationPanel.setBorder(javax.swing.BorderFactory.createTitledBorder("Information client"));
@@ -264,17 +345,16 @@ public class LocationPanel extends javax.swing.JPanel {
 
         dateExpirationPermisTextField.setToolTipText("Entrer la date d'expiration du permis du client");
 
-        classe1CheckBox.setText("1");
+        jLabel1.setText("Numéro permis de conduire :");
 
-        classe3CheckBox.setText("3");
+        classePermisButtonGroup.add(classe123RadioButton);
+        classe123RadioButton.setText("1,2,3");
 
-        classe5CheckBox.setText("5");
+        classePermisButtonGroup.add(classe45RadioButton);
+        classe45RadioButton.setText("4,5");
 
-        classe6ABCCheckBox.setText("6A,B,C");
-
-        classe6DCheckBox.setText("6D");
-
-        classe6ECheckBox.setText("6E");
+        classePermisButtonGroup.add(classeAutreRadioButton);
+        classeAutreRadioButton.setText("Autre");
 
         javax.swing.GroupLayout informationClientLocationPanelLayout = new javax.swing.GroupLayout(informationClientLocationPanel);
         informationClientLocationPanel.setLayout(informationClientLocationPanelLayout);
@@ -288,28 +368,20 @@ public class LocationPanel extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(dateExpirationPermisTextField))
                     .addGroup(informationClientLocationPanelLayout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(numeroPermisTextField))
+                    .addGroup(informationClientLocationPanelLayout.createSequentialGroup()
+                        .addComponent(jLabel12)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(dateNaissanceTextField))
+                    .addGroup(informationClientLocationPanelLayout.createSequentialGroup()
                         .addGroup(informationClientLocationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(informationClientLocationPanelLayout.createSequentialGroup()
-                                .addComponent(jLabel12)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(dateNaissanceTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabel14)
                             .addGroup(informationClientLocationPanelLayout.createSequentialGroup()
                                 .addComponent(jLabel18)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(telephoneTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(informationClientLocationPanelLayout.createSequentialGroup()
-                                .addComponent(classe1CheckBox)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(classe3CheckBox)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(classe5CheckBox)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(classe6ABCCheckBox)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(classe6DCheckBox)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(classe6ECheckBox))
                             .addGroup(informationClientLocationPanelLayout.createSequentialGroup()
                                 .addComponent(jLabel17)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -322,8 +394,14 @@ public class LocationPanel extends javax.swing.JPanel {
                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, informationClientLocationPanelLayout.createSequentialGroup()
                                     .addComponent(jLabel15)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(prenomTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(0, 28, Short.MAX_VALUE)))
+                                    .addComponent(prenomTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(informationClientLocationPanelLayout.createSequentialGroup()
+                                .addComponent(classe123RadioButton)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(classe45RadioButton)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(classeAutreRadioButton)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         informationClientLocationPanelLayout.setVerticalGroup(
@@ -347,6 +425,10 @@ public class LocationPanel extends javax.swing.JPanel {
                     .addComponent(telephoneTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(informationClientLocationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(numeroPermisTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(informationClientLocationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12)
                     .addComponent(dateNaissanceTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -357,12 +439,9 @@ public class LocationPanel extends javax.swing.JPanel {
                 .addComponent(jLabel14)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(informationClientLocationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(classe1CheckBox)
-                    .addComponent(classe3CheckBox)
-                    .addComponent(classe5CheckBox)
-                    .addComponent(classe6ABCCheckBox)
-                    .addComponent(classe6DCheckBox)
-                    .addComponent(classe6ECheckBox))
+                    .addComponent(classe123RadioButton)
+                    .addComponent(classe45RadioButton)
+                    .addComponent(classeAutreRadioButton))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -402,10 +481,16 @@ public class LocationPanel extends javax.swing.JPanel {
                 .addGroup(vehiculeLocationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(vehiculeDisponibleLabel)
                     .addComponent(vehiculeDisponibleComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(111, Short.MAX_VALUE))
         );
 
         confirmerLocationButton.setText("Confirmer");
+        confirmerLocationButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                confirmerLocationButtonActionPerformed(evt);
+            }
+        });
+        confirmerLocationButton.setVisible(false);
 
         annulerLocationButton.setText("Annuler");
         annulerLocationButton.addActionListener(new java.awt.event.ActionListener() {
@@ -431,11 +516,7 @@ public class LocationPanel extends javax.swing.JPanel {
 
         jLabel23.setText("Premier versement :");
 
-        montantPremierVersementLabel.setText("jLabel25");
-
         jLabel24.setText("Caution :");
-
-        paiementCautionLabel.setText("jLabel26");
 
         payerLocationButton.setText("Payer");
         payerLocationButton.addActionListener(new java.awt.event.ActionListener() {
@@ -459,7 +540,7 @@ public class LocationPanel extends javax.swing.JPanel {
                         .addComponent(jLabel24)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(paiementCautionLabel)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(23, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, montantPaiementLocationPanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(payerLocationButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -518,39 +599,44 @@ public class LocationPanel extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(informationClientLocationPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(paiementLocationPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(annulerLocationButton)
-                        .addGap(18, 18, 18)
-                        .addComponent(confirmerLocationButton))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(informationLocationPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(vehiculeLocationPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(20, 20, 20))
+                        .addComponent(vehiculeLocationPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(20, 20, 20))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(informationClientLocationPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(confirmerLocationButton)
+                                .addContainerGap())
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(annulerLocationButton)
+                                .addGap(107, 107, 107))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(paiementLocationPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap())))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(22, 22, 22)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(informationLocationPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(vehiculeLocationPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addComponent(vehiculeLocationPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
                         .addComponent(paiementLocationPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(annulerLocationButton)
-                            .addComponent(confirmerLocationButton)))
-                    .addComponent(informationClientLocationPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(22, 22, 22))
+                            .addComponent(confirmerLocationButton)
+                            .addComponent(annulerLocationButton))
+                        .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(informationLocationPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(informationClientLocationPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         vehiculeLocationPanel.setVisible(false);
@@ -561,7 +647,7 @@ public class LocationPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_annulerLocationButtonActionPerformed
 
     private void payerLocationButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_payerLocationButtonActionPerformed
-        Controller.confirmationLocation(this, confirmer);
+        Controller.paiement(confirmerLocationButton);
     }//GEN-LAST:event_payerLocationButtonActionPerformed
 
     private void calculLocationButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calculLocationButtonActionPerformed
@@ -572,6 +658,10 @@ public class LocationPanel extends javax.swing.JPanel {
         Controller.choixVehicule(vehiculeLocationPanel);
     }//GEN-LAST:event_choixVehiculeButtonActionPerformed
 
+    private void confirmerLocationButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmerLocationButtonActionPerformed
+        Controller.confirmationLocation(this, confirmer);
+    }//GEN-LAST:event_confirmerLocationButtonActionPerformed
+
     private JPanel annuler;
     private JPanel confirmer;
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -580,14 +670,12 @@ public class LocationPanel extends javax.swing.JPanel {
     private javax.swing.JLabel assuranceLabel;
     private javax.swing.JButton calculLocationButton;
     private javax.swing.JButton choixVehiculeButton;
-    private javax.swing.JCheckBox classe1CheckBox;
-    private javax.swing.JCheckBox classe3CheckBox;
-    private javax.swing.JCheckBox classe5CheckBox;
-    private javax.swing.JCheckBox classe6ABCCheckBox;
-    private javax.swing.JCheckBox classe6DCheckBox;
-    private javax.swing.JCheckBox classe6ECheckBox;
+    private javax.swing.JRadioButton classe123RadioButton;
+    private javax.swing.JRadioButton classe45RadioButton;
+    private javax.swing.JRadioButton classeAutreRadioButton;
     private javax.swing.JLabel classeChoisieLabel;
     private javax.swing.JComboBox<String> classeComboBox;
+    private javax.swing.ButtonGroup classePermisButtonGroup;
     private javax.swing.JButton confirmerLocationButton;
     private javax.swing.JTextField courrielTextField;
     private javax.swing.JFormattedTextField dateExpirationPermisTextField;
@@ -596,7 +684,7 @@ public class LocationPanel extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> dureeComboBox;
     private javax.swing.JPanel informationClientLocationPanel;
     private javax.swing.JPanel informationLocationPanel;
-    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
@@ -616,7 +704,7 @@ public class LocationPanel extends javax.swing.JPanel {
     private javax.swing.JPanel montantPaiementLocationPanel;
     private javax.swing.JLabel montantPremierVersementLabel;
     private javax.swing.JTextField nomTextField;
-    private javax.swing.JLabel numLocationLabel;
+    private javax.swing.JTextField numeroPermisTextField;
     private javax.swing.JLabel paiementCautionLabel;
     private javax.swing.JPanel paiementLocationPanel;
     private javax.swing.JButton payerLocationButton;

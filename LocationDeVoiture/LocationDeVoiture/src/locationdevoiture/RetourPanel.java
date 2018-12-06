@@ -5,6 +5,9 @@
  */
 package locationdevoiture;
 
+import java.util.Enumeration;
+import javax.swing.AbstractButton;
+import javax.swing.ButtonGroup;
 import javax.swing.JPanel;
 
 /**
@@ -20,6 +23,19 @@ public class RetourPanel extends javax.swing.JPanel {
         initComponents();
     }
     
+    // Fonction pour vérifier le RadioButton sélectionné
+    public String getSelectedButtonText(ButtonGroup buttonGroup) {
+        for (Enumeration<AbstractButton> buttons = buttonGroup.getElements(); buttons.hasMoreElements();) {
+            AbstractButton button = buttons.nextElement();
+
+            if (button.isSelected()) {
+                return button.getText();
+            }
+        }
+
+        return null;
+    }
+    
     public void setAnnuler(JPanel annuler)
     {
         this.annuler = annuler;
@@ -28,6 +44,91 @@ public class RetourPanel extends javax.swing.JPanel {
     public void setConfirmer(JPanel confirmer)
     {
         this.confirmer = confirmer;
+    }
+    
+    // Fonction pour le paneau de recherche
+    public String getNumeroLocation()
+    {
+        return this.trouverLocationTextField.getText();
+    }
+    
+    public String getPlaque()
+    {
+        return this.plaqueImmatriculationTextField.getText();
+    }
+    
+    
+    // Fonction pour paneau client
+    public void setNom(String nom)
+    {
+        this.nomLabel.setText(nom);
+    }
+
+    public void setDateNaissance(String date)
+    {
+        this.dateNaissanceLabel.setText(date);
+    }
+    
+    //Fonction pour paneau vehicule
+    public void setVehicule(String vehicule)
+    {
+        this.vehiculeLabel.setText(vehicule);
+    }
+    
+    public String getDateRetour()
+    {
+        return this.dateRetourTextField.getText();
+    }
+    
+    public String getKilometrageVehicule()
+    {
+        return this.kilometrageVehiculeTextField.getText();
+    }
+    
+    public String getNiveauEssence()
+    {
+        return this.niveauEssenceVehiculeTextField.getText();
+    }
+    
+    public String getReparationNecessaire()
+    {
+        return getSelectedButtonText(reparationButtonGroup);
+    }
+    
+    public String getDetailReparation()
+    {
+        return this.reparationTextArea.getText();
+    }
+    
+    public String getEstimationReparation()
+    {
+        return this.montantReparationTextField.getText();
+    }
+    
+    // Fonction pour paneau paiement
+    public void setPremierPaiement(String premier)
+    {
+        this.premierVersementLabel.setText(premier);
+    }
+    
+    public void setCaution(String caution)
+    {
+        this.cautionLabel.setText(caution);
+    }
+    
+    public void setTotal(String total)
+    {
+        this.totalLabel.setText(total);
+    }
+    
+    public void setDifference(String difference)
+    {
+        this.differenceLabel.setText(difference);
+    }
+    
+    public String getMethodePaiement()
+    {
+        return this.methodePaiementRetourComboBox.getSelectedItem().toString();
     }
     
     /**
@@ -49,10 +150,10 @@ public class RetourPanel extends javax.swing.JPanel {
         clientRetourPanel = new javax.swing.JPanel();
         jLabel29 = new javax.swing.JLabel();
         jLabel30 = new javax.swing.JLabel();
-        jLabel37 = new javax.swing.JLabel();
-        jLabel38 = new javax.swing.JLabel();
+        dateNaissanceLabel = new javax.swing.JLabel();
+        nomLabel = new javax.swing.JLabel();
         vehiculeRetourPanel = new javax.swing.JPanel();
-        jLabel31 = new javax.swing.JLabel();
+        vehiculeLabel = new javax.swing.JLabel();
         jLabel32 = new javax.swing.JLabel();
         kilometrageVehiculeTextField = new javax.swing.JTextField();
         jLabel33 = new javax.swing.JLabel();
@@ -70,14 +171,14 @@ public class RetourPanel extends javax.swing.JPanel {
         paiementRetourPanel = new javax.swing.JPanel();
         jLabel39 = new javax.swing.JLabel();
         jLabel40 = new javax.swing.JLabel();
-        jLabel41 = new javax.swing.JLabel();
-        jLabel42 = new javax.swing.JLabel();
+        premierVersementLabel = new javax.swing.JLabel();
+        cautionLabel = new javax.swing.JLabel();
         calculRetourButton = new javax.swing.JButton();
         montantRetourPanel = new javax.swing.JPanel();
         jLabel43 = new javax.swing.JLabel();
         jLabel44 = new javax.swing.JLabel();
-        jLabel45 = new javax.swing.JLabel();
-        jLabel46 = new javax.swing.JLabel();
+        differenceLabel = new javax.swing.JLabel();
+        totalLabel = new javax.swing.JLabel();
         jLabel47 = new javax.swing.JLabel();
         methodePaiementRetourComboBox = new javax.swing.JComboBox<>();
         payerRetourButton = new javax.swing.JButton();
@@ -93,6 +194,11 @@ public class RetourPanel extends javax.swing.JPanel {
         plaqueImmatriculationTextField.setToolTipText("Entrer le numero de plaque d'immatriculation du vehicule");
 
         chercherLocationButton.setText("Chercher");
+        chercherLocationButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chercherLocationButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout trouverLocationPanelLayout = new javax.swing.GroupLayout(trouverLocationPanel);
         trouverLocationPanel.setLayout(trouverLocationPanelLayout);
@@ -136,9 +242,7 @@ public class RetourPanel extends javax.swing.JPanel {
 
         jLabel30.setText("Date de naissance :");
 
-        jLabel37.setText("jLabel37");
-
-        jLabel38.setText("jLabel38");
+        dateNaissanceLabel.setText("**-**-****");
 
         javax.swing.GroupLayout clientRetourPanelLayout = new javax.swing.GroupLayout(clientRetourPanel);
         clientRetourPanel.setLayout(clientRetourPanelLayout);
@@ -151,8 +255,8 @@ public class RetourPanel extends javax.swing.JPanel {
                     .addComponent(jLabel29))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(clientRetourPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel38)
-                    .addComponent(jLabel37))
+                    .addComponent(nomLabel)
+                    .addComponent(dateNaissanceLabel))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         clientRetourPanelLayout.setVerticalGroup(
@@ -160,17 +264,17 @@ public class RetourPanel extends javax.swing.JPanel {
             .addGroup(clientRetourPanelLayout.createSequentialGroup()
                 .addGroup(clientRetourPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel29)
-                    .addComponent(jLabel38))
+                    .addComponent(nomLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(clientRetourPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel30)
-                    .addComponent(jLabel37))
+                    .addComponent(dateNaissanceLabel))
                 .addGap(0, 34, Short.MAX_VALUE))
         );
 
         vehiculeRetourPanel.setBorder(javax.swing.BorderFactory.createTitledBorder("Véhicule"));
 
-        jLabel31.setText("jLabel31");
+        vehiculeLabel.setToolTipText("");
 
         jLabel32.setText("Kilométrage du véhicule :");
 
@@ -238,7 +342,7 @@ public class RetourPanel extends javax.swing.JPanel {
                     .addComponent(reparationRetourPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(vehiculeRetourPanelLayout.createSequentialGroup()
                         .addGroup(vehiculeRetourPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel31)
+                            .addComponent(vehiculeLabel)
                             .addGroup(vehiculeRetourPanelLayout.createSequentialGroup()
                                 .addGroup(vehiculeRetourPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel32)
@@ -264,7 +368,7 @@ public class RetourPanel extends javax.swing.JPanel {
             vehiculeRetourPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(vehiculeRetourPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel31)
+                .addComponent(vehiculeLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(vehiculeRetourPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel36)
@@ -293,9 +397,9 @@ public class RetourPanel extends javax.swing.JPanel {
 
         jLabel40.setText("Caution :");
 
-        jLabel41.setText("jLabel41");
+        premierVersementLabel.setText("***.**");
 
-        jLabel42.setText("jLabel42");
+        cautionLabel.setText("***.**");
 
         calculRetourButton.setText("Calcul");
         calculRetourButton.addActionListener(new java.awt.event.ActionListener() {
@@ -310,15 +414,20 @@ public class RetourPanel extends javax.swing.JPanel {
 
         jLabel44.setText("Différence :");
 
-        jLabel45.setText("jLabel45");
+        differenceLabel.setText("***.**");
 
-        jLabel46.setText("jLabel46");
+        totalLabel.setText("***.**");
 
         jLabel47.setText("Méthode de paiement :");
 
         methodePaiementRetourComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Espece", "Debit", "Credit" }));
 
         payerRetourButton.setText("Payer");
+        payerRetourButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                payerRetourButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout montantRetourPanelLayout = new javax.swing.GroupLayout(montantRetourPanel);
         montantRetourPanel.setLayout(montantRetourPanelLayout);
@@ -333,8 +442,8 @@ public class RetourPanel extends javax.swing.JPanel {
                             .addComponent(jLabel43))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(montantRetourPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel46)
-                            .addComponent(jLabel45)))
+                            .addComponent(totalLabel)
+                            .addComponent(differenceLabel)))
                     .addGroup(montantRetourPanelLayout.createSequentialGroup()
                         .addComponent(jLabel47)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -351,11 +460,11 @@ public class RetourPanel extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(montantRetourPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel43)
-                    .addComponent(jLabel46))
+                    .addComponent(totalLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(montantRetourPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel44)
-                    .addComponent(jLabel45))
+                    .addComponent(differenceLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(montantRetourPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel47)
@@ -381,8 +490,8 @@ public class RetourPanel extends javax.swing.JPanel {
                                     .addComponent(jLabel40))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(paiementRetourPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel42)
-                                    .addComponent(jLabel41)))
+                                    .addComponent(cautionLabel)
+                                    .addComponent(premierVersementLabel)))
                             .addComponent(calculRetourButton))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
@@ -393,17 +502,19 @@ public class RetourPanel extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(paiementRetourPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel39)
-                    .addComponent(jLabel41))
+                    .addComponent(premierVersementLabel))
                 .addGap(18, 18, 18)
                 .addGroup(paiementRetourPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel40)
-                    .addComponent(jLabel42))
+                    .addComponent(cautionLabel))
                 .addGap(18, 18, 18)
                 .addComponent(calculRetourButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(montantRetourPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(73, Short.MAX_VALUE))
         );
+
+        montantRetourPanel.setVisible(false);
 
         confirmerRetourButton.setText("Confirmer");
 
@@ -454,47 +565,55 @@ public class RetourPanel extends javax.swing.JPanel {
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(confirmerRetourButton)
                                 .addComponent(annulerRetourButton))))
-                    .addContainerGap(22, Short.MAX_VALUE)))
+                    .addContainerGap(35, Short.MAX_VALUE)))
         );
+
+        clientRetourPanel.setVisible(false);
+        vehiculeRetourPanel.setVisible(false);
+        paiementRetourPanel.setVisible(false);
     }// </editor-fold>//GEN-END:initComponents
 
     private void calculRetourButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calculRetourButtonActionPerformed
-        Controller.retourAcceuil(this, annuler);
+        Controller.calculRetour(montantRetourPanel);
     }//GEN-LAST:event_calculRetourButtonActionPerformed
 
     private void annulerRetourButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_annulerRetourButtonActionPerformed
         Controller.confirmationRetour(this, confirmer);
     }//GEN-LAST:event_annulerRetourButtonActionPerformed
 
+    private void chercherLocationButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chercherLocationButtonActionPerformed
+        Controller.recherche(clientRetourPanel, vehiculeRetourPanel, paiementRetourPanel);
+    }//GEN-LAST:event_chercherLocationButtonActionPerformed
+
+    private void payerRetourButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_payerRetourButtonActionPerformed
+        Controller.paiement(confirmerRetourButton);
+    }//GEN-LAST:event_payerRetourButtonActionPerformed
+
     private JPanel annuler;
     private JPanel confirmer;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton annulerRetourButton;
     private javax.swing.JButton calculRetourButton;
+    private javax.swing.JLabel cautionLabel;
     private javax.swing.JButton chercherLocationButton;
     private javax.swing.JPanel clientRetourPanel;
     private javax.swing.JButton confirmerRetourButton;
+    private javax.swing.JLabel dateNaissanceLabel;
     private javax.swing.JFormattedTextField dateRetourTextField;
+    private javax.swing.JLabel differenceLabel;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel30;
-    private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel36;
-    private javax.swing.JLabel jLabel37;
-    private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel40;
-    private javax.swing.JLabel jLabel41;
-    private javax.swing.JLabel jLabel42;
     private javax.swing.JLabel jLabel43;
     private javax.swing.JLabel jLabel44;
-    private javax.swing.JLabel jLabel45;
-    private javax.swing.JLabel jLabel46;
     private javax.swing.JLabel jLabel47;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField kilometrageVehiculeTextField;
@@ -502,16 +621,20 @@ public class RetourPanel extends javax.swing.JPanel {
     private javax.swing.JFormattedTextField montantReparationTextField;
     private javax.swing.JPanel montantRetourPanel;
     private javax.swing.JTextField niveauEssenceVehiculeTextField;
+    private javax.swing.JLabel nomLabel;
     private javax.swing.JRadioButton nonReparationRadioButton;
     private javax.swing.JRadioButton ouiReparationRadioButton;
     private javax.swing.JPanel paiementRetourPanel;
     private javax.swing.JButton payerRetourButton;
     private javax.swing.JTextField plaqueImmatriculationTextField;
+    private javax.swing.JLabel premierVersementLabel;
     private javax.swing.ButtonGroup reparationButtonGroup;
     private javax.swing.JPanel reparationRetourPanel;
     private javax.swing.JTextArea reparationTextArea;
+    private javax.swing.JLabel totalLabel;
     private javax.swing.JPanel trouverLocationPanel;
     private javax.swing.JTextField trouverLocationTextField;
+    private javax.swing.JLabel vehiculeLabel;
     private javax.swing.JPanel vehiculeRetourPanel;
     // End of variables declaration//GEN-END:variables
 }

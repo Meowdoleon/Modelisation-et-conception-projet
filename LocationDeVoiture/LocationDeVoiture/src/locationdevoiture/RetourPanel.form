@@ -66,7 +66,7 @@
                           </Group>
                       </Group>
                   </Group>
-                  <EmptySpace pref="22" max="32767" attributes="0"/>
+                  <EmptySpace pref="35" max="32767" attributes="0"/>
               </Group>
           </Group>
       </Group>
@@ -149,6 +149,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Chercher"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chercherLocationButtonActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
@@ -160,6 +163,9 @@
           </Border>
         </Property>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="clientRetourPanel.setVisible(false);"/>
+      </AuxValues>
 
       <Layout>
         <DimensionLayout dim="0">
@@ -172,8 +178,8 @@
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jLabel38" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel37" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="nomLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="dateNaissanceLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
@@ -184,12 +190,12 @@
               <Group type="102" alignment="0" attributes="0">
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel29" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel38" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="nomLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel30" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel37" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="dateNaissanceLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="0" pref="34" max="32767" attributes="0"/>
               </Group>
@@ -207,15 +213,12 @@
             <Property name="text" type="java.lang.String" value="Date de naissance :"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel37">
+        <Component class="javax.swing.JLabel" name="dateNaissanceLabel">
           <Properties>
-            <Property name="text" type="java.lang.String" value="jLabel37"/>
+            <Property name="text" type="java.lang.String" value="**-**-****"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel38">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="jLabel38"/>
-          </Properties>
+        <Component class="javax.swing.JLabel" name="nomLabel">
         </Component>
       </SubComponents>
     </Container>
@@ -227,6 +230,9 @@
           </Border>
         </Property>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="vehiculeRetourPanel.setVisible(false);"/>
+      </AuxValues>
 
       <Layout>
         <DimensionLayout dim="0">
@@ -237,7 +243,7 @@
                       <Component id="reparationRetourPanel" alignment="0" max="32767" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jLabel31" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="vehiculeLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="jLabel32" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -274,7 +280,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jLabel31" min="-2" max="-2" attributes="0"/>
+                  <Component id="vehiculeLabel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel36" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -304,9 +310,9 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="jLabel31">
+        <Component class="javax.swing.JLabel" name="vehiculeLabel">
           <Properties>
-            <Property name="text" type="java.lang.String" value="jLabel31"/>
+            <Property name="toolTipText" type="java.lang.String" value=""/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel32">
@@ -443,6 +449,9 @@
           </Border>
         </Property>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="paiementRetourPanel.setVisible(false);"/>
+      </AuxValues>
 
       <Layout>
         <DimensionLayout dim="0">
@@ -460,8 +469,8 @@
                                   </Group>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jLabel42" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel41" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="cautionLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="premierVersementLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <Component id="calculRetourButton" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -479,12 +488,12 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel39" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel41" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="premierVersementLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel40" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel42" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cautionLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="calculRetourButton" min="-2" max="-2" attributes="0"/>
@@ -506,14 +515,14 @@
             <Property name="text" type="java.lang.String" value="Caution :"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel41">
+        <Component class="javax.swing.JLabel" name="premierVersementLabel">
           <Properties>
-            <Property name="text" type="java.lang.String" value="jLabel41"/>
+            <Property name="text" type="java.lang.String" value="***.**"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel42">
+        <Component class="javax.swing.JLabel" name="cautionLabel">
           <Properties>
-            <Property name="text" type="java.lang.String" value="jLabel42"/>
+            <Property name="text" type="java.lang.String" value="***.**"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="calculRetourButton">
@@ -532,6 +541,9 @@
               </Border>
             </Property>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="montantRetourPanel.setVisible(false);"/>
+          </AuxValues>
 
           <Layout>
             <DimensionLayout dim="0">
@@ -546,8 +558,8 @@
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel46" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel45" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="totalLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="differenceLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
@@ -571,12 +583,12 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel43" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel46" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="totalLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel44" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel45" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="differenceLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -601,14 +613,14 @@
                 <Property name="text" type="java.lang.String" value="Diff&#xe9;rence :"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel45">
+            <Component class="javax.swing.JLabel" name="differenceLabel">
               <Properties>
-                <Property name="text" type="java.lang.String" value="jLabel45"/>
+                <Property name="text" type="java.lang.String" value="***.**"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel46">
+            <Component class="javax.swing.JLabel" name="totalLabel">
               <Properties>
-                <Property name="text" type="java.lang.String" value="jLabel46"/>
+                <Property name="text" type="java.lang.String" value="***.**"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel47">
@@ -634,6 +646,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Payer"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="payerRetourButtonActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

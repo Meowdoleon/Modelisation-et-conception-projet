@@ -6,6 +6,8 @@
     </Component>
     <Component class="javax.swing.ButtonGroup" name="usureButtonGroup">
     </Component>
+    <Component class="javax.swing.ButtonGroup" name="classePermisButtonGroup">
+    </Component>
   </NonVisualComponents>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
@@ -24,25 +26,32 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
               <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="103" groupAlignment="1" attributes="0">
                   <Group type="102" attributes="0">
-                      <Component id="informationClientLocationPanel" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="paiementLocationPanel" max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                      <Component id="annulerLocationButton" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="confirmerLocationButton" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
                       <Component id="informationLocationPanel" max="32767" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="vehiculeLocationPanel" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Component id="informationClientLocationPanel" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="confirmerLocationButton" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="annulerLocationButton" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="107" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="paiementLocationPanel" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
                   </Group>
               </Group>
-              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -50,23 +59,24 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
               <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="informationLocationPanel" max="32767" attributes="0"/>
-                  <Component id="vehiculeLocationPanel" max="32767" attributes="0"/>
-              </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Component id="vehiculeLocationPanel" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="37" max="32767" attributes="0"/>
                       <Component id="paiementLocationPanel" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="annulerLocationButton" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="confirmerLocationButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="annulerLocationButton" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
-                  <Component id="informationClientLocationPanel" alignment="0" max="32767" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Component id="informationLocationPanel" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="informationClientLocationPanel" max="32767" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -88,11 +98,6 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="numLocationLabel" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -102,15 +107,14 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="classeComboBox" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  <EmptySpace min="-2" pref="95" max="-2" attributes="0"/>
                               </Group>
-                              <Group type="102" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="dureeComboBox" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="dateFormattedTextField" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="choixVehiculeButton" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="77" pref="77" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -129,6 +133,8 @@
                           <Component id="kmIllimiteButton" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
+                  <EmptySpace max="32767" attributes="0"/>
+                  <Component id="choixVehiculeButton" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -136,13 +142,9 @@
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="numLocationLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="dateFormattedTextField" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -152,30 +154,27 @@
                               <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="dureeComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="choixVehiculeButton" min="-2" pref="66" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="classeComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="assuranceLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="personnelleButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="supplementPoliceButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="usureLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="km500Button" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="kmIllimiteButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
+                      <Component id="choixVehiculeButton" min="-2" pref="66" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="classeComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="assuranceLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="personnelleButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="supplementPoliceButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="usureLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="km500Button" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="kmIllimiteButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace pref="11" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -184,16 +183,6 @@
         <Component class="javax.swing.JLabel" name="jLabel5">
           <Properties>
             <Property name="text" type="java.lang.String" value="Date de location :"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLabel10">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Num&#xe9;ro de location :"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="numLocationLabel">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="jLabel11"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JFormattedTextField" name="dateFormattedTextField">
@@ -261,12 +250,12 @@
             <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
               <ComponentRef name="assuranceButtonGroup"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Suppl&#xe9;ment"/>
+            <Property name="text" type="java.lang.String" value="Supplementaire"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="usureLabel">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Frais d&apos;usure :"/>
+            <Property name="text" type="java.lang.String" value="Frais d&apos;usure (km) :"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JRadioButton" name="km500Button">
@@ -274,7 +263,7 @@
             <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
               <ComponentRef name="usureButtonGroup"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="500 km gratuit"/>
+            <Property name="text" type="java.lang.String" value="500"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JRadioButton" name="kmIllimiteButton">
@@ -282,7 +271,7 @@
             <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
               <ComponentRef name="usureButtonGroup"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="km illimit&#xe9;"/>
+            <Property name="text" type="java.lang.String" value="illimit&#xe9;"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="choixVehiculeButton">
@@ -307,7 +296,7 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
+              <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
@@ -316,30 +305,22 @@
                           <Component id="dateExpirationPermisTextField" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
+                          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="numeroPermisTextField" max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="dateNaissanceTextField" max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="dateNaissanceTextField" min="-2" pref="100" max="-2" attributes="0"/>
-                              </Group>
                               <Component id="jLabel14" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="jLabel18" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Component id="telephoneTextField" min="-2" pref="100" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="classe1CheckBox" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="classe3CheckBox" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="classe5CheckBox" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="classe6ABCCheckBox" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="classe6DCheckBox" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="classe6ECheckBox" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="jLabel17" min="-2" max="-2" attributes="0"/>
@@ -358,8 +339,15 @@
                                       <Component id="prenomTextField" min="-2" pref="100" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="classe123RadioButton" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="classe45RadioButton" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="classeAutreRadioButton" min="-2" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
-                          <EmptySpace min="0" pref="28" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
@@ -391,6 +379,11 @@
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="numeroPermisTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel12" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="dateNaissanceTextField" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
@@ -403,12 +396,9 @@
                   <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="classe1CheckBox" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="classe3CheckBox" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="classe5CheckBox" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="classe6ABCCheckBox" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="classe6DCheckBox" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="classe6ECheckBox" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="classe123RadioButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="classe45RadioButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="classeAutreRadioButton" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
@@ -484,34 +474,35 @@
             <Property name="toolTipText" type="java.lang.String" value="Entrer la date d&apos;expiration du permis du client"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JCheckBox" name="classe1CheckBox">
+        <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>
-            <Property name="text" type="java.lang.String" value="1"/>
+            <Property name="text" type="java.lang.String" value="Num&#xe9;ro permis de conduire :"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JCheckBox" name="classe3CheckBox">
+        <Component class="javax.swing.JTextField" name="numeroPermisTextField">
+        </Component>
+        <Component class="javax.swing.JRadioButton" name="classe123RadioButton">
           <Properties>
-            <Property name="text" type="java.lang.String" value="3"/>
+            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+              <ComponentRef name="classePermisButtonGroup"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="1,2,3"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JCheckBox" name="classe5CheckBox">
+        <Component class="javax.swing.JRadioButton" name="classe45RadioButton">
           <Properties>
-            <Property name="text" type="java.lang.String" value="5"/>
+            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+              <ComponentRef name="classePermisButtonGroup"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="4,5"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JCheckBox" name="classe6ABCCheckBox">
+        <Component class="javax.swing.JRadioButton" name="classeAutreRadioButton">
           <Properties>
-            <Property name="text" type="java.lang.String" value="6A,B,C"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JCheckBox" name="classe6DCheckBox">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="6D"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JCheckBox" name="classe6ECheckBox">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="6E"/>
+            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+              <ComponentRef name="classePermisButtonGroup"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Autre"/>
           </Properties>
         </Component>
       </SubComponents>
@@ -562,7 +553,7 @@
                       <Component id="vehiculeDisponibleLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="vehiculeDisponibleComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="111" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -601,6 +592,12 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Confirmer"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="confirmerLocationButtonActionPerformed"/>
+      </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_ListenersCodePost" type="java.lang.String" value="confirmerLocationButton.setVisible(false);"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="annulerLocationButton">
       <Properties>
@@ -711,7 +708,7 @@
                               <Component id="paiementCautionLabel" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="23" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="32767" attributes="0"/>
@@ -747,9 +744,6 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="montantPremierVersementLabel">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="jLabel25"/>
-              </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel24">
               <Properties>
@@ -757,9 +751,6 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="paiementCautionLabel">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="jLabel26"/>
-              </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="payerLocationButton">
               <Properties>
