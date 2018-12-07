@@ -21,6 +21,7 @@ public class AccueilPanel extends javax.swing.JPanel {
         retour = new JPanel();
         location = new JPanel();
         deconnection = new JPanel();
+        donnees = new JPanel();
     }
     
     public void setRetour(JPanel retour)
@@ -38,6 +39,11 @@ public class AccueilPanel extends javax.swing.JPanel {
         this.deconnection = decon;
     }
     
+    public void setDonnees(JPanel donnees)
+    {
+        this.donnees = donnees;
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -51,6 +57,7 @@ public class AccueilPanel extends javax.swing.JPanel {
         locationButton = new javax.swing.JButton();
         retourButton = new javax.swing.JButton();
         deconnexionButton = new javax.swing.JButton();
+        gestionButton = new javax.swing.JButton();
 
         bienvenueLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         bienvenueLabel.setText("Bienvenue,");
@@ -76,6 +83,13 @@ public class AccueilPanel extends javax.swing.JPanel {
             }
         });
 
+        gestionButton.setText("Gestion Données");
+        gestionButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                gestionButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -84,9 +98,11 @@ public class AccueilPanel extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(bienvenueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(locationButton, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(retourButton, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(deconnexionButton))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(deconnexionButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(locationButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(retourButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(gestionButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap(224, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -99,8 +115,10 @@ public class AccueilPanel extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addComponent(retourButton)
                 .addGap(18, 18, 18)
+                .addComponent(gestionButton)
+                .addGap(18, 18, 18)
                 .addComponent(deconnexionButton)
-                .addContainerGap(137, Short.MAX_VALUE))
+                .addContainerGap(96, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -116,12 +134,18 @@ public class AccueilPanel extends javax.swing.JPanel {
         Controller.deconnection(this, deconnection);
     }//GEN-LAST:event_deconnexionButtonActionPerformed
 
+    private void gestionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gestionButtonActionPerformed
+        Controller.gestionDonnees(this,donnees);
+    }//GEN-LAST:event_gestionButtonActionPerformed
+
     private JPanel retour;
     private JPanel location;
     private JPanel deconnection;
+    private JPanel donnees;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel bienvenueLabel;
     private javax.swing.JButton deconnexionButton;
+    private javax.swing.JButton gestionButton;
     private javax.swing.JButton locationButton;
     private javax.swing.JButton retourButton;
     // End of variables declaration//GEN-END:variables

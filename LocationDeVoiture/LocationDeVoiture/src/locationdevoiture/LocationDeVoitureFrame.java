@@ -19,6 +19,7 @@ public class LocationDeVoitureFrame extends javax.swing.JFrame {
         aPanel.setVisible(false);
         lPanel.setVisible(false);
         rPanel.setVisible(false);
+        dPanel.setVisible(false);
     }
     
     /**
@@ -35,6 +36,7 @@ public class LocationDeVoitureFrame extends javax.swing.JFrame {
         aPanel = new locationdevoiture.AccueilPanel();
         lPanel = new locationdevoiture.LocationPanel();
         rPanel = new locationdevoiture.RetourPanel();
+        dPanel = new locationdevoiture.DonneePanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(800, 600));
@@ -47,12 +49,27 @@ public class LocationDeVoitureFrame extends javax.swing.JFrame {
         aPanel.setDeconnexion(cPanel);
         aPanel.setLocation(lPanel);
         aPanel.setRetour(rPanel);
+        aPanel.setDonnees(dPanel);
         jLayeredPane1.add(lPanel, "card4");
         lPanel.setAnnuler(aPanel);
         lPanel.setConfirmer(aPanel);
         jLayeredPane1.add(rPanel, "card5");
         rPanel.setAnnuler(aPanel);
         rPanel.setConfirmer(aPanel);
+
+        javax.swing.GroupLayout dPanelLayout = new javax.swing.GroupLayout(dPanel);
+        dPanel.setLayout(dPanelLayout);
+        dPanelLayout.setHorizontalGroup(
+            dPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 795, Short.MAX_VALUE)
+        );
+        dPanelLayout.setVerticalGroup(
+            dPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 552, Short.MAX_VALUE)
+        );
+
+        jLayeredPane1.add(dPanel, "card6");
+        dPanel.setRetour(aPanel);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -109,6 +126,7 @@ public class LocationDeVoitureFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private locationdevoiture.AccueilPanel aPanel;
     private locationdevoiture.ConnectionPanel cPanel;
+    private locationdevoiture.DonneePanel dPanel;
     private javax.swing.JLayeredPane jLayeredPane1;
     private locationdevoiture.LocationPanel lPanel;
     private locationdevoiture.RetourPanel rPanel;

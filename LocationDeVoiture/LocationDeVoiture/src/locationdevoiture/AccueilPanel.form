@@ -20,9 +20,12 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="bienvenueLabel" alignment="0" min="-2" pref="166" max="-2" attributes="0"/>
-                  <Component id="locationButton" alignment="0" min="-2" pref="95" max="-2" attributes="0"/>
-                  <Component id="retourButton" alignment="0" min="-2" pref="95" max="-2" attributes="0"/>
-                  <Component id="deconnexionButton" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                      <Component id="deconnexionButton" alignment="0" max="32767" attributes="0"/>
+                      <Component id="locationButton" alignment="0" max="32767" attributes="0"/>
+                      <Component id="retourButton" alignment="0" max="32767" attributes="0"/>
+                      <Component id="gestionButton" alignment="0" max="32767" attributes="0"/>
+                  </Group>
               </Group>
               <EmptySpace pref="224" max="32767" attributes="0"/>
           </Group>
@@ -38,8 +41,10 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="retourButton" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="gestionButton" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="deconnexionButton" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="137" max="32767" attributes="0"/>
+              <EmptySpace pref="96" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -75,6 +80,14 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="deconnexionButtonActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="gestionButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Gestion Donn&#xe9;es"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="gestionButtonActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

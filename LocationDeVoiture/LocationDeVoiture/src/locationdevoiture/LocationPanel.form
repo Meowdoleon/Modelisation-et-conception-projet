@@ -105,17 +105,9 @@
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="classeComboBox" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="95" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="dureeComboBox" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="dateFormattedTextField" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="77" pref="77" max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="classeComboBox" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="dureeComboBox" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="dateFormattedTextField" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">

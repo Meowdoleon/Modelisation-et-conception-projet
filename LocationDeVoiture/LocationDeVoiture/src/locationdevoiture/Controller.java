@@ -6,6 +6,7 @@
 package locationdevoiture;
 
 import javax.swing.JButton;
+import javax.swing.JList;
 import javax.swing.JPanel;
 
 /**
@@ -81,5 +82,31 @@ public class Controller {
         client.setVisible(true);
         vehicule.setVisible(true);
         paiement.setVisible(true);
+    }
+    
+    public static void changerTaux()
+    {
+        
+    }
+
+    static void setListeVehicule() 
+    {
+        
+    }
+
+    static void ajouterVehicule() 
+    {
+        
+    }
+
+    static void retirerVehicule() 
+    {
+        
+    }
+
+    static void gestionDonnees(JPanel present, JPanel next) 
+    {
+        present.setVisible(false);
+        next.setVisible(true);
     }
 }

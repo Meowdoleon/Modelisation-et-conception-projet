@@ -94,9 +94,9 @@ public class LocationPanel extends javax.swing.JPanel {
         this.classeChoisieLabel.setText(vehicule);
     }
     
-    public void setVehicule(String[] vehicule)
+    public void setVehicule(String[] vehicules)
     {
-        this.vehiculeDisponibleComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(vehicule));
+        this.vehiculeDisponibleComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(vehicules));
     }
     
     public String getVehiculeChoisi()
